@@ -1,6 +1,7 @@
 import { React,useState,useEffect } from 'react'
 import SingleTodoComponent from './SingleTodoComponent';
 import InputComponent from './inputComponent';
+import Loader from './Loader';
 
 
 import Card from '@mui/material/Card';
@@ -30,8 +31,9 @@ function App() {
     .then(data=>setTodos(data.todos))
     .catch(err=>console.log(err));
   },[])
-  console.log("render");
 
+  console.log("render");
+  
   return (
     <>
     <div 
@@ -61,11 +63,11 @@ function App() {
         >
           List of Todos
         </Typography>
-        {todos.map((todo,index)=>{
+        {todos.length!=0?todos.map((todo,index)=>{
           return(
             <SingleTodoComponent key={todo.id} todo={todos} setTodo={setTodos} description={todo.description} id={todo.id} n={index}/>
           );
-        })}
+        }):<Loader/>}
       </Card>
     </div>
      </>
