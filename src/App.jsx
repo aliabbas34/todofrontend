@@ -2,7 +2,7 @@ import { useState,useEffect } from 'react'
 import SingleTodoComponent from './SingleTodoComponent';
 import InputComponent from './inputComponent';
 import Loader from './Loader';
-
+import Grid from '@mui/material/Grid';
 
 import Card from '@mui/material/Card';
 
@@ -38,15 +38,18 @@ function App() {
     <>
     <div 
     id='main' 
-    style={{width:"100vw", height:"100vh", backgroundColor: "#98b5ff", display:"flex", justifyContent:"center"}}
+    style={{width:"100vw", height:"100vh", backgroundColor: "#98b5ff", display:"flex", justifyContent:"center", overflow:"scroll"}}
     >
+    <Grid container direction="row"
+        justifyContent="center">
+      <Grid item xs={12} sm="auto" style={{display:"flex", justifyContent:"center"}}>
       <Card 
         sx={{
           backgroundColor:"#344fa1", 
           borderRadius:"25px", 
           margin:"50px",
-          minWidth:'400px',
-          // maxWidth:'400px',
+          minWidth:'300px',
+          maxWidth:'400px',
         }}
       >
         <Typography 
@@ -71,6 +74,9 @@ function App() {
           );
         }):<Loader/>}
       </Card>
+      </Grid>
+    </Grid>
+      
     </div>
      </>
   )
