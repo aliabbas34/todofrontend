@@ -31,9 +31,11 @@ function SingleTodoComponent(props){
       }
       return(
         <div style={{display:"flex", justifyContent:"space-between"}}>
-          <Typography variant="subtitle1" gutterBottom sx={{color:"whitesmoke", marginLeft:"10px", marginTop:"5px"}}>
+        <div style={{maxWidth:'300px', wordWrap:'break-word'}}>
+          <Typography variant="subtitle1" gutterBottom sx={{color:"whitesmoke", marginLeft:"10px", marginTop:"5px",}}>
             {props.description}
           </Typography>
+          </div>
           <div style={{display:"flex", justifyContent:"end"}}>
             <EditOutlinedIcon onClick={()=>setdisplayUpdate(true)} sx={{color:"green", padding:"5px"}}></EditOutlinedIcon>
             <DeleteOutlinedIcon onClick={handleDeleteClick} sx={{color:"red", padding:"5px"}}></DeleteOutlinedIcon>
@@ -56,8 +58,9 @@ function SingleTodoComponent(props){
               "& .MuiInputBase-root": {//style for input box
                 color: 'white', 
                 height:40,
-                maxWidth:400,
-                width:280,
+                maxWidth:350,
+                minWidth:350,
+                // width:280,
                 backgroundColor:"#031956"
                 },
               }}

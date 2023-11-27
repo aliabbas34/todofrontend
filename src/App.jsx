@@ -1,4 +1,4 @@
-import { React,useState,useEffect } from 'react'
+import { useState,useEffect } from 'react'
 import SingleTodoComponent from './SingleTodoComponent';
 import InputComponent from './inputComponent';
 import Loader from './Loader';
@@ -32,7 +32,7 @@ function App() {
     .catch(err=>console.log(err));
   },[])
 
-  console.log("render");
+  //console.log("render");
   
   return (
     <>
@@ -44,7 +44,9 @@ function App() {
         sx={{
           backgroundColor:"#344fa1", 
           borderRadius:"25px", 
-          margin:"50px" 
+          margin:"50px",
+          minWidth:'400px',
+          // maxWidth:'400px',
         }}
       >
         <Typography 
