@@ -1,10 +1,11 @@
 import { Card } from "@mui/material";
-import { React,useState,useEffect } from 'react'
+import { useState,useEffect } from 'react'
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
+import Grid from '@mui/material/Grid';
 
 function SingleTodoComponent(props){
   const [displayUpdate, setdisplayUpdate]=useState(false);
@@ -51,7 +52,10 @@ function SingleTodoComponent(props){
         val=e.target.value;
       }
       return(
+        
         <div style={{display:"flex", justifyContent:"space-between"}}>
+        <Grid container>
+        <Grid item xs={10}>
           <TextField
             variant="outlined" 
             sx={{
@@ -59,7 +63,7 @@ function SingleTodoComponent(props){
                 color: 'white', 
                 height:40,
                 maxWidth:350,
-                minWidth:350,
+                // minWidth:350,
                 // width:280,
                 backgroundColor:"#031956"
                 },
@@ -67,6 +71,7 @@ function SingleTodoComponent(props){
               defaultValue={val}
               onChange={handleChange}
               />
+              </Grid>
           <ArrowUpwardIcon onClick={()=>{
             fetch(`https://todobackend-aliabbas34.onrender.com/todos/${props.id}`,{
               method:"PUT",
@@ -90,7 +95,9 @@ function SingleTodoComponent(props){
             setdisplayUpdate(false);
           }
           } sx={{color:"#1976D2", padding:"5px"}}></ArrowUpwardIcon>
+          </Grid>
         </div>
+        
       )
     }
 
